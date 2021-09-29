@@ -1,6 +1,15 @@
 # Base Controller Example
 
-## Build Run Test
+## New Relic Agent Spring controller annotation instrumentation
+
+The instrumentation assumes that Spring controllers are annotated with `@Controller` or `@RestController`.
+The class can optionally be annotated with `@RequestMapping` and that path will be used at root of all other
+URIs.  The methods that define mappings are annotated with `@RequestMapping` or HTTP method appropriate annotations.
+
+Main class for contemporary
+[Spring Controller Instrumentation](https://github.com/newrelic/newrelic-java-agent/blob/main/instrumentation/spring-4.3.0/src/main/java/com/nr/agent/instrumentation/SpringController_Instrumentation.java)
+
+## Build Run Test Example
 
 Adjust `run.sh` to reflect your New Relic JAR/config/environment then run it.
 
