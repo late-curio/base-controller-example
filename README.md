@@ -1,5 +1,21 @@
 # Base Controller Example
 
+## Build Run Test
+
+Adjust `run.sh` to reflect your New Relic JAR/config/environment then run it.
+
+Then run `runTests.sh` to hit the `composed` then `inherited` endpoints to see the
+behavior.
+
+If shared controller functionality is pulled out and used via `composition` the transactions
+will appear as expected.
+
+If they are inherited, transaction naming mechanism will not work correctly.
+
+PLEASE NOTE: If `inherited` endpoints are hit first directly after startup, it will potentially cause issues
+with the `composed` endpoints as they cause problems with the internal workings of the New Relic Agent's
+Spring controller annotation functionality.
+
 ## Parent controller example
 
 Two `XxxChildController` classes inherit a root `GET` mapping in the `...inheritance` package.
