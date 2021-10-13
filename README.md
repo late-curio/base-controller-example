@@ -32,12 +32,12 @@ for GET requests to `.../childroot/parentmethod` would be `childroot/parentmetho
 
 ![](desired.png)
 
-However, the instrumentation does not currently expect the inheritance of routes and deplays the route as
+However, the instrumentation does not currently expect the inheritance of routes and diplays the route as
 `<ChildControllerClassName>/<parentMethodName>`
 
 ![](undesired.png)
 
-A quick workaround is to add `@RestController("/arbitraryrootpathforuniqueness")` to the parent controller.
+A quick workaround is to add `@RestController("/arbitraryrootpathforuniqueness")` to the parent controller class.
 This prevents causing disruptions with other endpoint transaction names in the instrumentation and gives
 a transaction name that is closer to the desired one `parentmethod (GET)` that at least includes the path
 specified in the parent controller AND the HTTP method used for the request.
