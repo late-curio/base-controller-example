@@ -1,8 +1,10 @@
-package com.newrelic.basecontrollerexample.inheritance;
+package com.newrelic.basecontrollerexample.inheritance2;
 
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
 
-public class ParentController {
+@RestController("/arbitraryuniquepath")
+public class ParentController2 {
     @GetMapping("/method")
     public String getStuff() {
         String stuff = "Stuff";

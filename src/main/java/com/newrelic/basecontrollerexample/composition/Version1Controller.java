@@ -15,7 +15,7 @@ public class Version1Controller {
         this.service = service;
     }
 
-    @GetMapping
+    @GetMapping("/method")
     public String getStuff() {
         String stuff = service.getStuffAndDoThings();
         return stuff;
