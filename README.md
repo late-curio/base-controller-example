@@ -44,6 +44,9 @@ specified in the parent controller AND the HTTP method used for the request.
 
 ![](workaround.png)
 
+To fully achieve the desired transaction name and avoid unexpected results, the inheritance must be removed
+and shared functionality used via composition.  This will achieve the most desirable results.
+
 ## Parent controller example with issue
 
 Two `XxxChildController` classes inherit a root `GET` mapping in the `...inheritance` package.
