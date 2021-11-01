@@ -13,6 +13,8 @@ repositories {
 }
 
 dependencies {
+	//implementation 'com.newrelic.logging:log4j2:2.3'
+	//implementation 'com.newrelic.logging:logback:2.3'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
