@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--<Configuration monitorInterval="1800" packages="com.newrelic.logging.log4j2" status="trace">-->
+<!--    <Appenders>-->
+<!--        <RollingRandomAccessFile name="PSJ" fileName="logs/psj-runtime.log"-->
+<!--                                 filePattern="psj-runtime-%d{yyyy-MM-dd}-%i.log">-->
+<!--            <NewRelicLayout/>-->
+<!--            <Policies>-->
+<!--                <OnStartupTriggeringPolicy/>-->
+<!--                <TimeBasedTriggeringPolicy/>-->
+<!--                <SizeBasedTriggeringPolicy size="3 GB"/>-->
+<!--            </Policies>-->
+<!--            <DefaultRolloverStrategy fileIndex="min" min="1" max="10"/>-->
+<!--        </RollingRandomAccessFile>-->
+<!--    </Appenders>-->
+<!--    <Loggers>-->
+<!--        <AsyncRoot level="info">-->
+<!--            <AppenderRef ref="PSJ"/>-->
+<!--        </AsyncRoot>-->
+<!--    </Loggers>-->
+
+<!--</Configuration>-->
+<Configuration xmlns="http://logging.apache.org/log4j/2.0/config"
+               status="warn"
+               packages="com.newrelic.logging.log4j2">
+    <Appenders>
+
+        <Console name="Console">
+            <PatternLayout
+                    pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n" />
+        </Console>
+        <File name="LOGFILE"
+              fileName="logs/jdf-ops-oneview-logs.log"
+              append="false">
+            <NewRelicLayout />
+        </File>
+
+    </Appenders>
+    <Loggers>
+
+        <!-- Log everything in custom package-->
+        <Logger name="com.deere.jdf.thirdeye.application" level="debug" additivity="false">
+            <AppenderRef ref="Console"/>
+            <AppenderRef ref="LOGFILE"></AppenderRef>
+        </Logger>
+
+
+        <!-- Log everything in spring boot app-->
+        <Logger name="org.springframework.boot" level="debug" additivity="false">
+            <AppenderRef ref="Console"/>
+            <AppenderRef ref="LOGFILE"/>
+        </Logger>
+
+
+        <!-- Log everything in spring boot core-->
+        <Logger name="org.springframework.core" level="debug" additivity="false">
+            <AppenderRef ref="Console"/>
+            <AppenderRef ref="LOGFILE"/>
+        </Logger>
+
+        <Root level="info">
+            <AppenderRef ref="Console"/>
+            <AppenderRef ref="LOGFILE"/>
+        </Root>
+    </Loggers>
+</Configuration>
