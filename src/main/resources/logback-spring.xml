@@ -3,6 +3,11 @@
 
     <property name="LOGS" value="./logs" />
 
+    <appender name="LOG_FILE" class="ch.qos.logback.core.FileAppender">
+        <file>logs/app-log-file.log</file>
+        <encoder class="com.newrelic.logging.logback.NewRelicEncoder"/>
+    </appender>
+
     <appender name="ASYNC" class="com.newrelic.logging.logback.NewRelicAsyncAppender">
         <appender-ref ref="LOG_FILE" />
     </appender>
@@ -15,11 +20,6 @@
                 %black(%d{ISO8601}) %highlight(%-5level) [%blue(%t)] %yellow(%C{1.}): %msg%n%throwable
             </Pattern>
         </layout>
-    </appender>
-
-    <appender name="LOG_FILE" class="ch.qos.logback.core.FileAppender">
-        <file>logs/app-log-file.log</file>
-        <encoder class="com.newrelic.logging.logback.NewRelicEncoder"/>
     </appender>
 
     <appender name="RollingFile"
