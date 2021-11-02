@@ -14,6 +14,7 @@ repositories {
 
 dependencies {
 	implementation 'com.newrelic.logging:log4j2:2.3'
+	implementation 'com.lmax:disruptor:3.3.4'
 	//implementation 'com.newrelic.logging:logback:2.3'
 	implementation('org.springframework.boot:spring-boot-starter-web') {
 		exclude group: 'org.springframework.boot', module: 'spring-boot-starter-logging'
